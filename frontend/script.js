@@ -51,7 +51,7 @@ console.log({
 //variables
 
 /* var a = "hello1";    //global scope
-let b = "hello2"; // 
+let b = "hello2"; //  ezt ugy csinaljuk h valtozhat kozben
 const c = "hello3"; //tutira nem fogjuk megvaltoztatni
 
 console.log(a,b,c) */
@@ -73,17 +73,17 @@ d() */
 
 /* 
 let e = "1"
-console.log(e),  //shit opt lefele duplikal
+console.log(e),  //shit + opt lefele duplikal
 e = 2
 console.log(e)
 e = e * 2
 console.log(e)
- */
+*/
 
 /* 
 function multiplyByTwo(num){
     console.log(num)
-    return num * 2  // a return break-el, befejeyi a kodot
+    return num * 2  // a return break-el, befejezi a kodot
 }
 
 let f = multiplyByTwo(1)
@@ -104,6 +104,8 @@ let g = {
 g.myMethod()   //. al lehet belemenni
 
  */
+
+
 /*    ez nem mukodik csak pelda h ez megy a motorhazteto alatt
 let window = {
     addEventListener: function (eventName, eventFunction){
@@ -125,6 +127,18 @@ let i = h.anotherMethod("argument")
 console.log(i);
 
 console.log(h.anotherMethod("another argument"));  // igy lehet kiiratni egybol console.loggal
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
