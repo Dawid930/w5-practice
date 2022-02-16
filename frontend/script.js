@@ -96,7 +96,7 @@ console.log(multiplyByTwo(1));
 
 /* 
 let g = {
-    myMethod: function (){
+    myMethod: function (){  //bal oldal kulcs, jobb erteke a kulcsnak
         console.log("hello");
     }
 }
@@ -116,7 +116,7 @@ let window = {
 }
 window.addEventListener("load", loadEvent)
  */
-
+/* 
 let h = {
     anotherMethod: function(text){
         return `you sent the following argument to this method: ${text}`
@@ -127,12 +127,61 @@ let i = h.anotherMethod("argument")
 console.log(i);
 
 console.log(h.anotherMethod("another argument"));  // igy lehet kiiratni egybol console.loggal
+ */
 
 
 
 
+///                              OBJECTS
+
+//objectumokon belul kettospontot hasznalunk, kivul egyenlosegjel
+
+/* 
+let myString = "mikkamakka";
+
+let mySecondString = myString;
+
+let myThirdString = "mikkamakka";
+
+console.log(myString);
+console.log(mySecondString);
+console.log(myString === mySecondString);
+console.log(myString === myThirdString);
+ */
+
+/* 
+let myObject = {
+    myString: 'mikkamakka'
+}
+
+let mySecondObject = myObject;
+
+let myThirdObject = {
+    myString: 'mikkamakka'
+}
 
 
+mySecondObject.myString = "domdodom"  //megvaltoztatta a sima myObject stringjet is!!!  KLONOS pelda!!
+
+let myFourthObject = {...myObject}   //object masolas
+
+myFourthObject.myString = "Vacskamati";
+
+console.log(myObject.myString);
+console.log(myFourthObject.myString);
+ */
+
+//console.log(myObject === mySecondObject);
+//console.log(myObject === myThirdObject);  //false lesz mert
+
+//console.log(myObject.myString);
+
+
+
+
+/* console.log('' == '');
+console.log({} === {});  // nem lesz egyenlo
+ */
 
 
 
