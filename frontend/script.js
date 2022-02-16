@@ -26,6 +26,7 @@ if(x > 5 || y > 10) {   // the sign ||  means OR; && means AND;   ?  means THEN
 }
 
  */
+/* 
 const x = 10;
 
 const color = x > 10 ? 'red' : 'blue';   // ?  means THEN;  : means ELSE
@@ -41,9 +42,20 @@ switch(color) {
         console.log('color is NOT red or blue');
         break;
 }
+ */
 
+obj = {
+    name: "dog",
+    legs: 4,
+    color: "white",
+}
 
+function animal(obj){
+  return "This" +" " + obj.color + " " + obj.name +  " " +"has" +  " " + obj.legs +  " " +"legs" + "."
+}
 
+  //"This" + color + name + "has" + legs + "."
+// `This ${color} ${name} has ${legs}.`
 
 
 
