@@ -132,6 +132,9 @@ console.log(h.anotherMethod("another argument"));  // igy lehet kiiratni egybol 
 
 
 
+
+
+
 ///                              OBJECTS
 
 //objectumokon belul kettospontot hasznalunk, kivul egyenlosegjel
@@ -165,27 +168,32 @@ mySecondObject.myString = "domdodom"  //megvaltoztatta a sima myObject stringjet
 
 let myFourthObject = {...myObject}   //object masolas
 
-myFourthObject.myString = "Vacskamati";
+myFourthObject.myString = "Vacskamati"; // itt csak kicsereli az objekten beluli valtozot
 
 console.log(myObject.myString);
 console.log(myFourthObject.myString);
+
+
+console.log(myObject === mySecondObject);  // true lesz mert fentebb egyenlove tettuk a ket objektet sima '=' vel
+console.log(myObject === myThirdObject);  //false lesz mert ket kulon objectnek kezeli a JS es nem lat bele
+
+console.log(myObject.myString);
+
  */
 
-//console.log(myObject === mySecondObject);
-//console.log(myObject === myThirdObject);  //false lesz mert
-
-//console.log(myObject.myString);
-
-
-
-
-/* console.log('' == '');
+/* 
+console.log('' == '');
 console.log({} === {});  // nem lesz egyenlo
+
  */
 
 
 
-//            Itt jon DATA .js
+
+
+
+
+//                                                                           Itt jon DATA .js
 
 /* 
 window.addEventListener("load", function(){       //igy is lehet egybe irni a functionnal, uaz mint a lentebbi
@@ -193,7 +201,7 @@ window.addEventListener("load", function(){       //igy is lehet egybe irni a fu
 })
 
  */
-/* 
+
 function loadEvent(){
     console.log("betoltodoott 2");
     let rootElement = document.getElementById("root")
@@ -203,11 +211,27 @@ function loadEvent(){
         <div class="card">
             <h2>${movieRecieved.title}</h2> 
             <div class="time">${movieRecieved.year}</div>
-            <h4>${movieRecieved.rate}</h4>
+            <div cass="rate">${movieRecieved.rate}</div>
         </div>
         `;
     };
- */
+
+    rootElement.insertAdjacentHTML("beforeend", card({
+        "title": "Moulin Rouge",
+        "year": 2001,
+        "rate": 9.9
+    }));
+
+    let actuallyFavouriteMovie = {
+        "title": "Eternal sunshine of a spotless mind",
+        "year": 2004,
+        "rate": 9.8    
+    };
+    
+    rootElement.insertAdjacentHTML("beforeend", card(actuallyFavouriteMovie));
+    rootElement.insertAdjacentHTML("beforeend", card(movies[0]));
+
+
     for (const movieSend of movies) {
         rootElement.insertAdjacentHTML("beforeend", card(movieSend));
     }
