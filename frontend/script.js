@@ -218,24 +218,27 @@ function loadEvent(){
     };
 
     let renderAllCardElements = function(incomingMoviesArray){
-        let renderedCardList = "";
+        let renderedCardList = `<div class="cards">`;
         //for ciklus ami vegigmegy a card arrayen, amit parameterkent kaptunk meg
         for (const incomingMovie of incomingMoviesArray) {
-            //for ciklus minden lepcsojenel hozzaadja a renderedcardlist-hez az adott element a megfelelo div cardban
+            renderedCardList += card(incomingMovie.title, incomingMovie.year, incomingMovie.rate)
+           /*  //for ciklus minden lepcsojenel hozzaadja a renderedcardlist-hez az adott element a megfelelo div cardban
             renderedCardList +=`
             <div class="card">
                 <h2>${incomingMovie.title}</h2> 
                  <div class="time">${incomingMovie.year}</div>
                 <div cass="rate">${incomingMovie.rate}</div>
              </div>
-            `
+            ` */
         }
+        renderedCardList += `</div>`
+
 
         console.log(renderedCardList);
         // returnoli az elkeszult elemekkel feltoltott renderedcardlist (for cikluson kivul)
         return renderedCardList;
             
-        };
+    
     }
 
     /* 
@@ -245,7 +248,7 @@ function loadEvent(){
         points.sort(function(a, b){return a - b});  // sorbarendezes
          */
 
-    let newGoodMovies = [];
+    let newGoodMovies = [];  //for ciklussal toltjuk fel
 
     for (const movieSend of movies) {
       /*   let newerThan2000 = false;
@@ -270,5 +273,7 @@ function loadEvent(){
     rootElement.insertAdjacentHTML("beforeend", renderAllCardElements(newGoodMovies)); //bekuld a renderall.. ba arrayst
 
 }    
+
+
 window.addEventListener("load", loadEvent);
 
