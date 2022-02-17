@@ -185,6 +185,38 @@ console.log({} === {});  // nem lesz egyenlo
 
 
 
+//            Itt jon DATA .js
+
+/* 
+window.addEventListener("load", function(){       //igy is lehet egybe irni a functionnal, uaz mint a lentebbi
+    console.log("betoltodott 1");
+})
+
+ */
+/* 
+function loadEvent(){
+    console.log("betoltodoott 2");
+    let rootElement = document.getElementById("root")
+
+    let card = function (movieRecieved){
+        return `
+        <div class="card">
+            <h2>${movieRecieved.title}</h2> 
+            <div class="time">${movieRecieved.year}</div>
+            <h4>${movieRecieved.rate}</h4>
+        </div>
+        `;
+    };
+ */
+    for (const movieSend of movies) {
+        rootElement.insertAdjacentHTML("beforeend", card(movieSend));
+    }
+
+    console.log(movies);
+}
+
+window.addEventListener("load", loadEvent);  //a window is egy object, es ebben tortenik minden
+
 
 
 
