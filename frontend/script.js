@@ -193,7 +193,7 @@ console.log({} === {});  // nem lesz egyenlo
 
 
 
-//                                                                           Itt jon DATA .js
+//                                                    Itt jon DATA .js
 
 /* 
 window.addEventListener("load", function(){       //igy is lehet egybe irni a functionnal, uaz mint a lentebbi
@@ -203,47 +203,72 @@ window.addEventListener("load", function(){       //igy is lehet egybe irni a fu
  */
 
 function loadEvent(){
-    console.log("betoltodoott 2");
+
     let rootElement = document.getElementById("root")
 
-    let card = function (movieRecieved){
+    let card = function (title, year, rate){
         return `
         <div class="card">
-            <h2>${movieRecieved.title}</h2> 
-            <div class="time">${movieRecieved.year}</div>
-            <div cass="rate">${movieRecieved.rate}</div>
+            <h2>${title}</h2> 
+            <div class="time">${year}</div>
+            <div cass="rate">${rate}</div>
         </div>
         `;
-    };
-
-    rootElement.insertAdjacentHTML("beforeend", card({
-        "title": "Moulin Rouge",
-        "year": 2001,
-        "rate": 9.9
-    }));
-
-    let actuallyFavouriteMovie = {
-        "title": "Eternal sunshine of a spotless mind",
-        "year": 2004,
-        "rate": 9.8    
-    };
     
-    rootElement.insertAdjacentHTML("beforeend", card(actuallyFavouriteMovie));
-    rootElement.insertAdjacentHTML("beforeend", card(movies[0]));
+    };
 
+    let renderAllCardElements = function(incomingMoviesArray){
+        let renderedCardList = "";
+        //for ciklus ami vegigmegy a card arrayen, amit parameterkent kaptunk meg
+        for (const incomingMovie of incomingMoviesArray) {
+            //for ciklus minden lepcsojenel hozzaadja a renderedcardlist-hez az adott element a megfelelo div cardban
+            renderedCardList +=`
+            <div class="card">
+                <h2>${incomingMovie.title}</h2> 
+                 <div class="time">${incomingMovie.year}</div>
+                <div cass="rate">${incomingMovie.rate}</div>
+             </div>
+            `
+        }
 
-    for (const movieSend of movies) {
-        rootElement.insertAdjacentHTML("beforeend", card(movieSend));
+        console.log(renderedCardList);
+        // returnoli az elkeszult elemekkel feltoltott renderedcardlist (for cikluson kivul)
+        return renderedCardList;
+            
+        };
     }
 
-    console.log(movies);
-}
+    /* 
+    movies.sort(function(a, b){return a.year - b.year})  //ev szerint sorbarendezes
+     */
+            /* 
+        points.sort(function(a, b){return a - b});  // sorbarendezes
+         */
 
-window.addEventListener("load", loadEvent);  //a window is egy object, es ebben tortenik minden
+    let newGoodMovies = [];
 
+    for (const movieSend of movies) {
+      /*   let newerThan2000 = false;
+        
+        if (movieSend.year > 2000) {
+            newerThan2000 = true;
+        }
+        if (newerThan2000) {
+            rootElement.insertAdjacentHTML("beforeend", card(movieSend));
+        } */
 
+        //let floorRate = Math.floor(movieSend.rate)
 
+        if (movieSend.year > 2000 && movieSend.rate >= 8) {
+            newGoodMovies.push(movieSend);
+            //rootElement.insertAdjacentHTML("beforeend", card(movieSend.title, movieSend.year, floorRate));
+        }
+    }
 
+    newGoodMovies.sort(function(a, b){return a.year - b.year});
 
+    rootElement.insertAdjacentHTML("beforeend", renderAllCardElements(newGoodMovies)); //bekuld a renderall.. ba arrayst
 
+}    
+window.addEventListener("load", loadEvent);
 
